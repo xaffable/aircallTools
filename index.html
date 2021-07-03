@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Include Twitter Bootstrap and jQuery: -->
+  <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css"/>
+  <script type="text/javascript" src="js/jquery.min.js"></script>
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+  <!-- Include the plugin's CSS and JS: -->
+  <script type="text/javascript" src="js/bootstrap-multiselect.min.js"></script>
+  <link rel="stylesheet" href="css/bootstrap-multiselect.min.css" type="text/css"/>
+    <style>
+    .titlebar>h2{
+      font-size: 1em;
+    font-weight: 350;
+    text-shadow: none;
+    text-transform: uppercase;
+    padding:15px 30px;
+    color: #5E6469;
+    }
+    body{
+      font-family:'Felix', 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif';
+      margin:0;
+      background-color:rgb(253 253 252);
+}
+    form{
+      display:inline;
+    }
+
+  li{
+    list-style-type: none;
+  }
+    .horizontalNav{
+      text-decoration: none;
+      padding-inline-start: 10px;
+    }
+    .horizontalNav li{
+      display: inline;
+      font-weight: 600;
+      font-size: 14px;
+      padding: 6px 10px 4px 10px;
+    color: #ffffff;
+    }
+    .horizontalNav ul{
+       list-style-type: none;
+       padding: 6px 10px 4px 10px;
+position: relative;
+border-radius: 10px;
+     }
+    .header {
+      display: table;
+      background: #18332f;
+width: 100%;
+}
+
+.select-container{
+  min-width: 200px;
+max-width: 200px;
+height: 55px;
+margin: 5px;
+border: 1px solid rgba(0,0,0,0.08);
+border-radius: 5px;
+background: #ffffff;
+-webkit-box-sizing: border-box;
+box-sizing: border-box;
+}
+#site_title_image{
+  width: 30px;
+    border-radius: 100%;
+}
+
+.Nav2_links{
+  background: #7b8389;
+border-radius:10px;
+  display: none;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  position: absolute;
+  width: 275px;
+  z-index: 1;
+  padding-top: 60px;
+  margin-left: -40px;
+}
+
+.apiBox{
+  line-height: 25px;
+  width: 250px;
+  padding:0;
+}
+
+.Nav2:hover .Nav2_links{
+  display:block;
+}
+
+.Nav2{
+  width:240px;
+  float:right;
+  position:relative;
+  display: inline-block;
+  z-index:0;
+}
+
+.sep{
+  background: rgba(0,0,0,0.08);
+  height: 1px;
+}
+
+.Select{
+      line-height: 24px;
+  min-width: 200px;
+max-width: 200px;
+height: 55px;
+margin: 5px;
+border: 1px solid rgba(0,0,0,0.08);
+border-radius: 5px;
+background: #ffffff;
+-webkit-box-sizing: border-box;
+box-sizing: border-box;
+}
+.typeSelect{
+      line-height: 24px;
+height: 55px;
+margin: 5px;
+border: 1px solid rgba(0,0,0,0.08);
+border-radius: 5px;
+background: #ffffff;
+-webkit-box-sizing: border-box;
+box-sizing: border-box;
+}
+
+.numberSelect{
+      line-height: 24px;
+height: 55px;
+margin: 5px;
+border: 1px solid rgba(0,0,0,0.08);
+border-radius: 5px;
+background: #ffffff;
+-webkit-box-sizing: border-box;
+box-sizing: border-box;
+}
+.fileSelect{
+      line-height: 24px;
+height: 55px;
+margin: 5px;
+border: 1px solid rgba(0,0,0,0.08);
+border-radius: 5px;
+background: #ffffff;
+-webkit-box-sizing: border-box;
+box-sizing: border-box;
+}
+
+.dropdownHeader{
+    margin-left: 10px;
+}
+.dropdownLabel{
+    color: #aaa;
+    font-size: 11px;
+    text-align: left;
+}
+.Nav3 li{
+  display:inline-table;
+  text-align: center;
+}
+.Nav3 {
+  display: table;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.disabledButton{
+  background-color: #f4f4f4;
+color: #afafa9;
+}
+
+.enabledButton{
+  background-color: #00b388;
+  color: #fff;
+  cursor: pointer;
+}
+
+.button{
+  text-align: center;
+  display:inline-block;
+  transition: background-color 0.2s ease-in-out;
+      font-size: 11px;
+      font-weight: bold;
+      text-transform: uppercase;
+      border-radius: 5px;
+      margin: 10px 0;
+      border: 0.5px solid transparent;
+      height: 40px;
+      line-height: 30px;
+      width:250px;
+      outline: 0;
+      white-space: nowrap;box-shadow: 0 4px 4px 0 rgb(50 50 50 / 8%), 0 2px 2px 0 rgb(50 50 50 / 8%), 0 2px 2px 0 rgb(50 50 50 / 8%), 0 0 1px 0 rgb(50 50 50 / 30%);
+}
+
+.apiDropdown{
+  background: url(data:image/png;base64,R0lGODlhBwAEAKIAAL6+vry8vIiIiJWVlf///3t7ewAAAAAAACH5BAEAAAUALAAAAAAHAAQAAAMLWLol80MoF5mQKgEAOw==) no-repeat calc(100% - 0px) 50%;
+  border-radius: 10px;
+    position: absolute;
+    margin-top: 5px;
+    float: left;
+    display: none;
+    padding: 3px 0px 5px 0;
+    list-style: none;
+    z-index: 1010;
+    font-weight:400;
+    padding-right:60px;
+    /* margin-top: -5px; */
+}
+.login .bloc {
+    position: relative;
+    border-radius: 5px;
+    -webkit-box-shadow: 0 0 0 1px rgb(0 0 0 / 10%);
+    box-shadow: 0 0 0 1px rgb(0 0 0 / 10%);
+}
+.login {
+    width: 250px;
+    margin: 0 auto;
+    margin-top: -10%;
+    text-align: center;
+}
+.login-container {
+    background: #fff;
+    background: -webkit-gradient(linear, left top, left bottom, from(#fff),color-stop(45%, #f8f8f8));
+    background: linear-gradient(to bottom, #fff 0%,#f8f8f8 45%);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    position: relative;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-flow: column nowrap;
+    flex-flow: column nowrap;
+    -ms-flex-line-pack: center;
+    align-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    height: 100%;
+    line-height:50px;
+
+}
+.login .bloc .bloc-line {
+    position: relative;
+    height: 50px;
+    border-radius: 6px;
+    background: #fff;
+    line-height: 50px;
+    overflow: hidden;
+}
+.multiselect-option{
+  background-color: rgb(245 245 245);
+  border-color: transparent;
+}
+.multiselect-container{
+  font-size: 13px;
+  max-height: 537px;
+/*overflow: scroll; */
+padding: 0 10px 10px 10px;
+width: 280px;
+border-radius: 4px;
+background: #fff;
+-webkit-box-shadow: 0 0 0 1px rgb(0 0 0 / 8%), 0 5px 10px rgb(0 0 0 / 10%);
+}
+
+.dropdown-menu {
+max-height: 500px;
+overflow-y: auto;
+overflow-x: hidden;
+width: 94%;
+}
+
+.multiselect-container .multiselect-all.active:not(.multiselect-active-item-fallback), .multiselect-container .multiselect-all:not(.multiselect-active-item-fallback):active, .multiselect-container .multiselect-group.active:not(.multiselect-active-item-fallback), .multiselect-container .multiselect-group:not(.multiselect-active-item-fallback):active, .multiselect-container .multiselect-option.active:not(.multiselect-active-item-fallback), .multiselect-container .multiselect-option:not(.multiselect-active-item-fallback):active {
+  background-color: #00b388;
+  color:#fff;
+  font-family: Arial;
+  font-size: 13px;
+  border-color: transparent;
+}
+#type{
+  border:none;
+  font-weight: 500;
+  font-size: 12px;
+  padding-left: 10px;
+}
+button{
+  background-color: transparent;
+border: none;
+text-align: left;
+    font-weight: 500;
+}
+.multiselect-container .multiselect-filter>input.multiselect-search {
+  margin: 10px 0;
+}
+.text-muted{
+  display: none
+}
+.form-check-input{
+  float: right;
+}
+
+.multiselect-search{
+  width: 90% !important;
+    height: 33px !important;
+    border-radius: 10px !important;
+}
+
+.dropdown-item{
+  width: 100%;
+text-overflow: ellipsis;
+white-space: nowrap;
+overflow: hidden;
+position: relative;
+margin-bottom: 5px;
+padding: 5px 25px 5px 8px;
+-webkit-transition: background 0.1s ease-in-out, color 0.1s ease-in-out;
+transition: background 0.1s ease-in-out, color 0.1s ease-in-out;
+border-radius: 4px;
+background: #f5f5f5;
+color: #7f7f7f;
+}
+
+input:focus, select:focus, textarea:focus, form:focus, button:focus {outline:0;}
+.arrow {
+  border: solid black;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 2px;
+  margin: 8px auto 0px auto;
+  float: right;
+}
+.down {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+select{
+  text-align: center;
+}
+.centerButton{
+  margin-left: auto;
+    margin-right: auto;
+    display: table;
+}
+.alert{
+  text-align: center;
+}
+.multiselect-selected-text{
+  overflow: hidden;
+text-overflow: ellipsis;
+white-space: nowrap;
+width: 96%;
+height: 20px;
+display: inline-block;
+}
+.urlField{
+  font-weight: 500;
+  width: 600px;
+  line-height: 1px;
+  border: none;
+  padding-left: 10px;
+  float: left;
+}
+#numbers2{
+  width: 380px;
+}
+
+.multiselect {
+    width: 95%;
+    padding-left: 10px;
+    float: left;
+}
+.btn-group{
+  width: 100% !important;
+}
+ </style>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon"
+      type="image/ico"
+      href="https://aircall.io/favicon.ico">
+
+    <title>Bulk Update Messages & Music</title>
+
+  </head>
+  <body>
+    <div class="header">
+      <ul class="horizontalNav">
+        <img id="site_title_image" alt="Bulk Update Messages & Music" src="https://cdn.aircall.io/aircall-logo-squared.png">
+        <li style="font-weight:900;vertical-align: super;">
+      Bulk Update Messages & Music
+    </li>
+<div class="Nav2">
+<li class="apiDropdown" id="apiDropdown">Connect to an Account</li>
+<div class="Nav2_links">
+<li><input class="apiBox" type="text" id="apiId" placeholder="API ID" onkeyup="validateApi()"></input></li>
+<li><input class="apiBox" type="text" id="token" placeholder="API Token" onkeyup="validateApi()"></input></li>
+<li><input id="apiSave" class="button disabledButton" type="submit" value="Save" onclick="getCompany()" disabled></input></li>
+</div>
+</div>
+    </ul>
+  </div>
+  <div class="titlebar">
+  <h2>Bulk Update Messages & Music</h2>
+</div>
+<div>
+<ul class="Nav3">
+  <div id="alert"></div>
+  <li>
+<div class="typeSelect">
+  <div class="dropdownHeader">
+    <div class="dropdownLabel">Select music/message type</div>
+    <div class="sep"></div>
+  </div>
+  <select name="type" id="type">
+  <option value="ivr">IVR Message</option>
+  <option value="welcome">Welcome Message</option>
+  <option value="ringing_tone">Waiting Music</option>
+  <option value="waiting">Music On Hold</option>
+  <option value="unanswered_call">Unanswered Call Message</option>
+  <option value="after_hours">After Hours Message</option>
+  </select>
+</div>
+</li>
+<li>
+  <div class="numberSelect">
+    <div class="dropdownHeader">
+      <div class="dropdownLabel">Select phone numbers</div>
+      <div class="sep"></div>
+    </div>
+  <div id="numbers2">
+    None Available
+  </div>
+</div>
+</li>
+<li>
+  <div class="fileSelect">
+    <div class="dropdownHeader">
+      <div class="dropdownLabel">Message/Music URL</div>
+      <div class="sep"></div>
+    </div>
+    <input class="urlField" type="text" id="message" onkeyup="validate()">
+</div>
+</li>
+</ul>
+</div>
+<div class="centerButton">
+<input id="submit"class="button disabledButton"type="button" value="UPDATE NUMBERS" onclick="postUpdate()" disabled></input>
+</div>
+<script src="script.js"></script>
+  </body>
+</html>
