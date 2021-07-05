@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Include Twitter Bootstrap and jQuery: -->
-  <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css"/>
-  <script type="text/javascript" src="js/jquery.min.js"></script>
-  <script type="text/javascript" src="js/bootstrap.min.js"></script>
-
-  <!-- Include the plugin's CSS and JS: -->
-  <script type="text/javascript" src="js/bootstrap-multiselect.min.js"></script>
-  <link rel="stylesheet" href="css/bootstrap-multiselect.min.css" type="text/css"/>
+  <link rel="stylesheet" href="bootstrap.min.css" type="text/css"/>
+  <script type="text/javascript" src="jquery.min.js"></script>
+  <script type="text/javascript" src="bootstrap.min.js"></script>
+  <script type="text/javascript" src="bootstrap-multiselect.min.js"></script>
+  <link rel="stylesheet" href="bootstrap-multiselect.min.css" type="text/css"/>
+  <link rel="stylesheet" href="font-awesome.css" type="text/css"/>
     <style>
     .titlebar>h2{
       font-size: 1em;
@@ -52,7 +50,6 @@ border-radius: 10px;
       background: #18332f;
 width: 100%;
 }
-
 .select-container{
   min-width: 200px;
 max-width: 200px;
@@ -68,7 +65,6 @@ box-sizing: border-box;
   width: 30px;
     border-radius: 100%;
 }
-
 .Nav2_links{
   background: #7b8389;
 border-radius:10px;
@@ -80,17 +76,14 @@ border-radius:10px;
   padding-top: 60px;
   margin-left: -40px;
 }
-
 .apiBox{
   line-height: 25px;
   width: 250px;
   padding:0;
 }
-
 .Nav2:hover .Nav2_links{
   display:block;
 }
-
 .Nav2{
   width:240px;
   float:right;
@@ -98,12 +91,10 @@ border-radius:10px;
   display: inline-block;
   z-index:0;
 }
-
 .sep{
   background: rgba(0,0,0,0.08);
   height: 1px;
 }
-
 .Select{
       line-height: 24px;
   min-width: 200px;
@@ -126,7 +117,6 @@ background: #ffffff;
 -webkit-box-sizing: border-box;
 box-sizing: border-box;
 }
-
 .numberSelect{
       line-height: 24px;
 height: 55px;
@@ -147,7 +137,6 @@ background: #ffffff;
 -webkit-box-sizing: border-box;
 box-sizing: border-box;
 }
-
 .dropdownHeader{
     margin-left: 10px;
 }
@@ -165,18 +154,15 @@ box-sizing: border-box;
   margin-left: auto;
   margin-right: auto;
 }
-
 .disabledButton{
   background-color: #f4f4f4;
 color: #afafa9;
 }
-
 .enabledButton{
   background-color: #00b388;
   color: #fff;
   cursor: pointer;
 }
-
 .button{
   text-align: center;
   display:inline-block;
@@ -193,7 +179,6 @@ color: #afafa9;
       outline: 0;
       white-space: nowrap;box-shadow: 0 4px 4px 0 rgb(50 50 50 / 8%), 0 2px 2px 0 rgb(50 50 50 / 8%), 0 2px 2px 0 rgb(50 50 50 / 8%), 0 0 1px 0 rgb(50 50 50 / 30%);
 }
-
 .apiDropdown{
   background: url(data:image/png;base64,R0lGODlhBwAEAKIAAL6+vry8vIiIiJWVlf///3t7ewAAAAAAACH5BAEAAAUALAAAAAAHAAQAAAMLWLol80MoF5mQKgEAOw==) no-repeat calc(100% - 0px) 50%;
   border-radius: 10px;
@@ -206,7 +191,6 @@ color: #afafa9;
     z-index: 1010;
     font-weight:400;
     padding-right:60px;
-    /* margin-top: -5px; */
 }
 .login .bloc {
     position: relative;
@@ -242,7 +226,6 @@ color: #afafa9;
     justify-content: center;
     height: 100%;
     line-height:50px;
-
 }
 .login .bloc .bloc-line {
     position: relative;
@@ -259,21 +242,18 @@ color: #afafa9;
 .multiselect-container{
   font-size: 13px;
   max-height: 537px;
-/*overflow: scroll; */
 padding: 0 10px 10px 10px;
 width: 280px;
 border-radius: 4px;
 background: #fff;
 -webkit-box-shadow: 0 0 0 1px rgb(0 0 0 / 8%), 0 5px 10px rgb(0 0 0 / 10%);
 }
-
 .dropdown-menu {
 max-height: 500px;
 overflow-y: auto;
 overflow-x: hidden;
 width: 94%;
 }
-
 .multiselect-container .multiselect-all.active:not(.multiselect-active-item-fallback), .multiselect-container .multiselect-all:not(.multiselect-active-item-fallback):active, .multiselect-container .multiselect-group.active:not(.multiselect-active-item-fallback), .multiselect-container .multiselect-group:not(.multiselect-active-item-fallback):active, .multiselect-container .multiselect-option.active:not(.multiselect-active-item-fallback), .multiselect-container .multiselect-option:not(.multiselect-active-item-fallback):active {
   background-color: #00b388;
   color:#fff;
@@ -296,19 +276,14 @@ text-align: left;
 .multiselect-container .multiselect-filter>input.multiselect-search {
   margin: 10px 0;
 }
-.text-muted{
-  display: none
-}
 .form-check-input{
   float: right;
 }
-
 .multiselect-search{
-  width: 90% !important;
+  width: 93% !important;
     height: 33px !important;
     border-radius: 10px !important;
 }
-
 .dropdown-item{
   width: 100%;
 text-overflow: ellipsis;
@@ -381,7 +356,7 @@ display: inline-block;
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon"
       type="image/ico"
-      href="https://aircall.io/favicon.ico">
+      href="favicon.ico">
 
     <title>Bulk Update Messages & Music</title>
 
